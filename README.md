@@ -9,6 +9,7 @@ Git clone this repository, all paths are relative to the base directory of this 
 #### vCenter (vcenter/terraform.tfvars.json)
 
 ```json
+{
     "vsphere_server": "<VCENTER IP>",
     "vsphere_user": "<VCENTER USER>",
     "vsphere_password": "<VCENTER PASSWORD>",
@@ -17,6 +18,7 @@ Git clone this repository, all paths are relative to the base directory of this 
     "ip": "<IP TO DEPLOY>",
     "netmask": "<NETMASK, eg: 24>",
     "default-gateway": "<DEFAULT GATEWAY>"
+}
 ```
 I recommend to pass sensitive data as environent variables:
 

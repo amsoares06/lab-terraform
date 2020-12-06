@@ -13,6 +13,7 @@ variable "vsphere_password" {
 
 variable "template-name" {
   description = "Name of the VMWare template used to deploy the virtual machine"
+  default     = "template-name"
 }
 
 variable "vcpus" {
