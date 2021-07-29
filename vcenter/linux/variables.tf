@@ -1,5 +1,6 @@
 variable "vsphere_server" {
   description = "vCenter server FQDN or IP"
+  default     = "vcenter.localdomain.lan"
 }
 
 variable "vsphere_user" {
@@ -9,6 +10,26 @@ variable "vsphere_user" {
 
 variable "vsphere_password" {
   description = "vSphere password"
+}
+
+variable "datacenter" {
+  description = "vCenter datacenter to deploy"
+  default     = "dc-home"
+}
+
+variable "cluster" {
+  description = "vCenter cluster to deploy"
+  default     = "cluster-home"
+}
+
+variable "datastore" {
+  description = "vCenter datastore to deploy"
+  default     = "datastore1"
+}
+
+variable "vmnetwork" {
+  description = "vCenter VM Network to use"
+  default     = "VM Network"
 }
 
 variable "template-name" {
@@ -28,7 +49,7 @@ variable "memory" {
 
 variable "disksize" {
   description = "Size of the disk in GB"
-  default     = 40
+  default     = 20
 }
 
 variable "hostname" {

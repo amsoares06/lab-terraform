@@ -1,29 +1,38 @@
 ## configure the vSphere Provider
+terraform {
+  required_providers {
+    vsphere = {
+      source  = "hashicorp/vsphere"
+      version = "~> 2.0.2"
+    }
+  }
+}
+
+
 provider "vsphere" {
   user                 = var.vsphere_user
   password             = var.vsphere_password
   vsphere_server       = var.vsphere_server
-  version              = "~> 1.24.2"
   allow_unverified_ssl = true
 }
 
 ## where to deploy
 data "vsphere_datacenter" "dc" {
-  name = "dc-home"
-}
-
-data "vsphere_datastore" "datastore" {
-  name          = "datastore1"
-  datacenter_id = data.vsphere_datacenter.dc.id
+  name = var.datacenter
 }
 
 data "vsphere_compute_cluster" "cluster" {
-  name          = "cluster-home"
+  name          = var.cluster
+  datacenter_id = data.vsphere_datacenter.dc.id
+}
+
+data "vsphere_datastore" "datastore" {
+  name          = var.datastore
   datacenter_id = data.vsphere_datacenter.dc.id
 }
 
 data "vsphere_network" "network" {
-  name          = "VM Network"
+  name          = var.vmnetwork
   datacenter_id = data.vsphere_datacenter.dc.id
 }
 
