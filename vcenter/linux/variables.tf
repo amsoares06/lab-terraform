@@ -49,7 +49,7 @@ variable "memory" {
 
 variable "disksize" {
   description = "Size of the disk in GB"
-  default     = 20
+  default     = 40
 }
 
 variable "hostname" {
